@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-10 13:19:58
- * @LastEditTime: 2020-12-10 13:41:47
+ * @LastEditTime: 2020-12-10 16:16:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /SamSung/src/pages/financeInfo/component/myInfo.vue
@@ -58,6 +58,7 @@ export default {
         height: 50px;
     }
     .info-content-warp{
+        margin-left: 30px ;
         font-family: PingFangSC-Regular;
         font-size: 14px;
         color: #002800;

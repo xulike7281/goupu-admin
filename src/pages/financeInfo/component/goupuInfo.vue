@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-10 13:20:01
- * @LastEditTime: 2020-12-10 13:43:44
+ * @LastEditTime: 2020-12-10 16:06:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /SamSung/src/pages/financeInfo/component/goupuInfo.vue
@@ -9,10 +9,10 @@
 <template>
     <el-card class="box-card goupu-info">
         <div class="info-title">
-            我的财务信息
+            够谱财务信息
         </div>
         <div class="info-logo">
-            <img src="../../../assets/image/sum_logo.png" alt="">
+            <img src="../../../assets/image/goupu_logo.png" alt="">
         </div>
         <div class="info-content-warp">
             <div class="info-content">
@@ -59,6 +59,7 @@ export default {
         height: 50px;
     }
     .info-content-warp{
+        margin-left: 30px ;
         font-family: PingFangSC-Regular;
         font-size: 14px;
         color: #002800;
