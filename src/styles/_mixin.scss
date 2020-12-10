@@ -1,0 +1,90 @@
+$mainColor:#151519;
+
+@mixin table-center {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+@mixin poa-center($w, $h) {
+    position: absolute;
+    width: $w;
+    height: $h;
+    left: 50%;
+    top: 50%;
+    transition: translate(-50%, -50%)
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin t-overflow($line:1) {
+    @if $line==1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@mixin thinBorder($directionMaps: bottom, $color: #ccc, $position: after) {
+    // 是否只有一个方向
+    $isOnlyOneDir: string==type-of($directionMaps);
+
+    @if ($isOnlyOneDir) {
+        $directionMaps: ($directionMaps);
+    }
+
+    @each $directionMap in $directionMaps {
+        border-#{$directionMap}: 1px solid $color;
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+        & {
+            position: relative;
+
+            // 删除1像素密度比下的边框
+            @each $directionMap in $directionMaps {
+                border-#{$directionMap}: none;
+            }
+        }
+
+        &:#{$position} {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5);
+            box-sizing: border-box;
+            padding: 1px;
+            transform-origin: 0 0;
+            pointer-events: none;
+            border: 0 solid $color;
+
+            @each $directionMap in $directionMaps {
+                border-#{$directionMap}-width: 1px;
+            }
+        }
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+        &:#{$position} {
+            width: 300%;
+            height: 300%;
+            transform: scale(0.33);
+        }
+    }
+}
+
