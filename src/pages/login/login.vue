@@ -38,7 +38,7 @@
             <el-dialog
             :visible.sync="forgetPasswordDialog"
             width="400px"
-            top="27%"
+            top="15%"
             custom-class='forget-password-dialog'
             append-to-body
             :show-close='false'
@@ -121,7 +121,7 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
+<style rel="stylesheet/scss" lang="scss" >
 $bg: #2d3a4b;
 $light_gray: #eee;
 $btn_bg:#FF6800;

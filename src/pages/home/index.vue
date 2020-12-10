@@ -33,11 +33,16 @@
               </div>
             </el-card>
         </div>
-
             <el-card class="box-card card-charts">
-            <div >
-                收益趋势
-            </div>
+              <div class="row cen-space">
+                <span class="ft14 c-666 bold">收益趋势</span>
+                <el-radio-group v-model="radio" @change='changeMonthOrYear' size="mini">
+                  <el-radio-button label="month">月</el-radio-button>
+                  <el-radio-button label="year">年</el-radio-button>
+
+                </el-radio-group>
+              </div>
+
             <info-line></info-line>
             </el-card>
         </div>
@@ -56,7 +61,7 @@
                   </div>
                   <div>
                     <span class="ft12 c-333">137****2622</span>
-                    <span class="c-324CD2 ft12 ml20">修改密码</span>
+                    <span class="c-324CD2 ft12 ml20 modifly-pass" @click="modiflyPasswordDialog = true">修改密码</span>
                   </div>
                 </div>
               </div>
@@ -66,12 +71,12 @@
                 </div>
                 <div>
                   <span class="ft12 c-666">登录时间：</span><span class="ft12 c-151515">2020/11/30 15:32</span>
-                  
+
                 </div>
               </div>
             </div>
             <div class="login-out-wrap row cen-center" >
-              <div class="login-out row cen-center ft12 border-1px" @click="loginOut">退出登录</div>
+              <div class="login-out row cen-center ft12" @click="loginOut">退出登录</div>
             </div>
         </el-card>
         <el-card class="box-card card-month">
@@ -97,6 +102,27 @@
       </div>
 
     <TableList></TableList>
+    <div>
+       <el-dialog
+            :visible.sync="modiflyPasswordDialog"
+            width="400px"
+            top="10%"
+            custom-class='modifly-password-dialog column cen-start'
+            append-to-body
+            :show-close='false'
+            center
+            title='修改密码'
+            >
+                <!-- <div  class="text-center ft18 c-333 bold" ></div> -->
+                <div class="column cen-center">
+                  <el-input class="el-input-pass" placeholder="新密码"></el-input>
+                  <el-input class="el-input-pass mt20" placeholder="确认密码"></el-input>
+                </div>
+                <div class="footer-btn row cen-center " @click="modiflyPassword">
+                    确认修改
+                </div>
+      </el-dialog>
+    </div>
   </div>
 </template>
 
@@ -113,6 +139,8 @@ export default {
     },
     data() {
         return {
+            radio: 'month',
+            modiflyPasswordDialog: false,
             timeLineOption: {},
             timeLoading: false
         }
@@ -121,6 +149,12 @@ export default {
         this.setLineOption()
     },
     methods: {
+        changeMonthOrYear(val) {
+            console.log('val: ', val)
+        },
+        modiflyPassword() {
+
+        },
         loginOut() {
             this.$store.commit('LOGIN_OUT')
             /* 防止切换角色时addRoutes重复添加路由导致出现警告 */
@@ -145,7 +179,8 @@ export default {
 
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
+$btn_bg:#FF6800;
 .home-content{
     // width: 100%;
   .home-left{
@@ -175,6 +210,9 @@ export default {
           height: 14px;
         }
       }
+      .modifly-pass{
+        cursor: pointer;
+      }
     }
     .card-month{
       width: 320px;
@@ -200,6 +238,35 @@ export default {
     padding:0 10px;
     box-sizing: border-box;
   }
+}
+ .modifly-password-dialog{
+   .el-dialog__header{
+     padding-bottom: 0!important;
+     .el-dialog__title{
+     }
+   }
 
+    .el-dialog__body{
+            // display: flex;
+            // flex-direction: column;
+            // justify-content:center;
+            // align-self: center;
+            // padding-top:0!important;
+        }
+
+    .el-input-pass{
+      width: 300px;
+    }
+    .footer-btn{
+      cursor: pointer;
+      margin-top: 30px;
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #FFFFFF;
+      text-align: center;
+      background: $btn_bg;
+      width: 300px;
+      height: 42px;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-17 19:05:26
- * @LastEditTime: 2020-12-09 17:48:01
+ * @LastEditTime: 2020-12-10 15:21:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /SamSung/src/pages/layout/component/main-content/index.vue
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import TopAside from './top-aside'
+// import TopAside from './top-aside'
 import Content from './content'
 import { mapState } from 'vuex'
 
@@ -33,7 +33,7 @@ export default {
         ...mapState(['isSidebarNavCollapse'])
     },
     components: {
-        TopAside,
+        // TopAside,
         Content
     }
 }
