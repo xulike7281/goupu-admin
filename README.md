@@ -1,18 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-17 19:05:26
- * @LastEditTime: 2020-12-10 15:02:01
- * @LastEditors: your name
+ * @LastEditTime: 2020-12-10 15:13:54
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: /SamSung/Users/yangqin/Desktop/goupu-admin/README.md
+ * @FilePath: goupu-admin/README.md
 -->
 ## vue-admin-permission
 项目基于vue-cli3.0进行搭建，并使用了vue全家桶vue vuex axios vue-router elementui，增加了按钮级别的权限控制
 
-
- ### <a target="_blank" href="http://www.vueadmin.cn">线上预览地址</a>
- ### <a target="_blank" href="https://github.com/loveRandy/react-admin">React版本请移步</a>
-  
 
 #### 脚手架版本:
  *vue-cli-3.0
@@ -44,5 +40,4 @@
   
    #### 温馨提示
    在新增vue页面的时候，热更新可能会失效，重启一下项目
-  
-### <a target="_blank" href="http://www.randy168.com">个人博客系统:www.randy168.com</a>
+
